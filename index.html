@@ -167,15 +167,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2021/01/16/hello/" >
-  hello
+        <a href="/2021/01/16/centos7-%E5%AE%89%E8%A3%85sftp/" >
+  
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2021/01/16/hello/"><span class="article-date">
+        <a href="/2021/01/16/centos7-%E5%AE%89%E8%A3%85sftp/"><span class="article-date">
   2021-01-16
 </span>
 </a>
@@ -186,7 +186,28 @@
       </div>
       <div class="article-entry">
         
-          <h2 id="测试hexo"><a href="#测试hexo" class="headerlink" title="测试hexo"></a>测试hexo</h2><p>hello hexo</p>
+          <p>-–</p>
+<p>title: centos7-安装sftp</p>
+<p>date: 2021-01-16 16:23:26</p>
+<p>tags: linux工具安装</p>
+<p>-–</p>
+<h2 id="1、创建sftp用户组"><a href="#1、创建sftp用户组" class="headerlink" title="1、创建sftp用户组"></a>1、创建sftp用户组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd sftp</span><br></pre></td></tr></table></figure>
+<h2 id="2、创建ftp用户"><a href="#2、创建ftp用户" class="headerlink" title="2、创建ftp用户"></a>2、创建ftp用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd sftp</span><br></pre></td></tr></table></figure>
+<h2 id="3、创建temsftp家目录并指定"><a href="#3、创建temsftp家目录并指定" class="headerlink" title="3、创建temsftp家目录并指定"></a>3、创建temsftp家目录并指定</h2><p>给家目录更改属主并授权家目录属性必须是root，权限可以是755或是750</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;sftp -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -d &#x2F;usr&#x2F;sftp sftp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown root:root &#x2F;usr&#x2F;sftp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 &#x2F;usr&#x2F;sftp</span><br></pre></td></tr></table></figure>
+<h2 id="4、创建可写目录"><a href="#4、创建可写目录" class="headerlink" title="4、创建可写目录"></a>4、创建可写目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;usr&#x2F;sftp&#x2F;file -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown sftp:sftp &#x2F;usr&#x2F;sftp&#x2F;file</span><br></pre></td></tr></table></figure>
+<h2 id="5、编辑配置文件-etc-ssh-sshd-config"><a href="#5、编辑配置文件-etc-ssh-sshd-config" class="headerlink" title="5、编辑配置文件 /etc/ssh/sshd_config"></a>5、编辑配置文件 /etc/ssh/sshd_config</h2><p>注释掉 <code>X11Forwarding yes</code> 这句话，大概在101行</p>
+<p>注释掉 <code>Subsystem sftp /usr/libexec/openssh/sftp-server</code> 这句话，大概在132行</p>
+<p>并在文件末尾添加如下语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Subsystem sftp internal-sftp</span><br><span class="line">Match User sftp</span><br><span class="line">ChrootDirectory &#x2F;usr&#x2F;sftp</span><br><span class="line">ForceCommand  internal-sftp</span><br><span class="line">AllowTcpForwarding no</span><br><span class="line">X11Forwarding no</span><br></pre></td></tr></table></figure>
+<p>重新启动ssh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<h2 id="6、验证"><a href="#6、验证" class="headerlink" title="6、验证"></a>6、验证</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sftp sftp@192.168.0.216</span><br></pre></td></tr></table></figure>
 
         
       </div>
