@@ -8,20 +8,21 @@
 
 <title>
   
-    志熙兮
+    centos7-安装sftp
   
 </title>
 
-<meta name="description" content="-– title: centos7-安装sftp date: 2021-01-16 16:23:26 tags: linux工具安装 -– 1、创建sftp用户组1groupadd sftp 2、创建ftp用户1useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp 1passwd sftp 3、创建temsftp家目录并指定给家目录更改属主并授权家目">
+<meta name="description" content="1、创建sftp用户组1groupadd sftp 2、创建ftp用户1useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp 1passwd sftp 3、创建temsftp家目录并指定给家目录更改属主并授权家目录属性必须是root，权限可以是755或是750 1mkdir &#x2F;usr&#x2F;sftp -p 1usermod -d &amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="志熙兮">
+<meta property="og:title" content="centos7-安装sftp">
 <meta property="og:url" content="https://zhixixi.github.io/2021/01/16/centos7-%E5%AE%89%E8%A3%85sftp/index.html">
 <meta property="og:site_name" content="志熙兮">
-<meta property="og:description" content="-– title: centos7-安装sftp date: 2021-01-16 16:23:26 tags: linux工具安装 -– 1、创建sftp用户组1groupadd sftp 2、创建ftp用户1useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp 1passwd sftp 3、创建temsftp家目录并指定给家目录更改属主并授权家目">
+<meta property="og:description" content="1、创建sftp用户组1groupadd sftp 2、创建ftp用户1useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp 1passwd sftp 3、创建temsftp家目录并指定给家目录更改属主并授权家目录属性必须是root，权限可以是755或是750 1mkdir &#x2F;usr&#x2F;sftp -p 1usermod -d &amp;#x">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-16T08:23:26.057Z">
-<meta property="article:modified_time" content="2021-01-16T10:35:56.969Z">
+<meta property="article:published_time" content="2021-01-16T08:23:26.000Z">
+<meta property="article:modified_time" content="2021-01-16T10:40:11.814Z">
 <meta property="article:author" content="zhixi">
+<meta property="article:tag" content="linux工具安装">
 <meta name="twitter:card" content="summary">
 
 
@@ -101,7 +102,7 @@
             
               <li class="tag-list-container">
                 <a href="javascript:;">标签</a>
-                
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" rel="tag">linux工具安装</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
@@ -162,6 +163,10 @@
       
           <article id="post-centos7-安装sftp" class="article article-type-post">
   
+    <h1 class="article-header">
+      centos7-安装sftp
+    </h1>
+  
   
 
   <div class="article-info">
@@ -172,15 +177,14 @@
     
 
     
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85/" rel="tag">linux工具安装</a></li></ul>
+	</span>
+
 
   </div>
   <div class="article-entry">
-    <p>-–</p>
-<p>title: centos7-安装sftp</p>
-<p>date: 2021-01-16 16:23:26</p>
-<p>tags: linux工具安装</p>
-<p>-–</p>
-<h2 id="1、创建sftp用户组"><a href="#1、创建sftp用户组" class="headerlink" title="1、创建sftp用户组"></a>1、创建sftp用户组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd sftp</span><br></pre></td></tr></table></figure>
+    <h2 id="1、创建sftp用户组"><a href="#1、创建sftp用户组" class="headerlink" title="1、创建sftp用户组"></a>1、创建sftp用户组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd sftp</span><br></pre></td></tr></table></figure>
 <h2 id="2、创建ftp用户"><a href="#2、创建ftp用户" class="headerlink" title="2、创建ftp用户"></a>2、创建ftp用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g sftp -s &#x2F;sbin&#x2F;nologin -M sftp</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd sftp</span><br></pre></td></tr></table></figure>
 <h2 id="3、创建temsftp家目录并指定"><a href="#3、创建temsftp家目录并指定" class="headerlink" title="3、创建temsftp家目录并指定"></a>3、创建temsftp家目录并指定</h2><p>给家目录更改属主并授权家目录属性必须是root，权限可以是755或是750</p>
